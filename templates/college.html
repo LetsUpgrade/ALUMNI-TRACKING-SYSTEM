@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{%block content%}
+<div class="container ">
+    <br>
+    <div class="card testimonial-card mr-3 mb-3 ml-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="{{ college.Image.url }}" style="height: 200px;width: 250px">
+                </div>
+                <div class="col-sm-8">
+                    <h2 class="card-title text-danger">{{college.College}}</h2>
+                    <br>
+                    <a href="{{ college.Branch }}">Click Here To Know More.</a>
+                </div>
+            </div>
+            <hr>
+            <h6>{{college.About|safe|linebreaks}}</h6>
+            <hr>
+            <div style="align-items: center;">
+                <h3 style="padding:50px;color:rgb(39, 73, 104)">Registered Alumnis</h3>
+                {% if alumnis %}
+                {% for alumni in alumnis %}
+                <div class="card testimonial-card mr-3 mb-3 ml-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="{{ alumni.Image.url }}" style="height: 200px;width: 250px">
+                            </div>
+                            <div class="col-sm-8">
+                                <h2 class="card-title text-danger">{{alumni.first_name}} {{alumni.last_name}}</h2>
+                                <h6 class="text-primary">{{alumni.Work}}</h6>
+                                <br>
+                                <h5 class="text-info">College: {{alumni.College}}</h5>
+                                <h5 class="text-info">Branch: {{alumni.Branch}}</h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <h4>About:</h4>
+                        <h6>{{alumni.About|safe|linebreaks}}</h6>
+                        <h5 class="text-info">Contact: {{alumni.email}}</h5>
+                    </div>
+                    {% if request.user.is_authenticated %}
+                    {% if alumni.Verified %}
+                    {%else%}
+                    <div>
+                        <button class="btn btn-outline-info" style="margin:100px"><a
+                                href="{% url 'alumni-authentication' alumni.id %}">Authenticate</a></button>
+                    </div>
+                    {%endif%}
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {%else%}
+                <h3 style="padding:100px;color:rgb(29, 66, 54)">No Registered Alumnis</h3>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{%endblock%}

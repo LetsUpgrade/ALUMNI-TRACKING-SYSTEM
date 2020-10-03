@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<div class="mx-auto bg-warning" style="width:600px">
+   <div class="card text-center border border-light p-2">
+     <div class="col-md-10 col-sm-10 col-12">
+        <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Log In</strong>
+        </h5>
+         <div class="md-forms" >
+            <form class="border border-light p-5" method="post" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {{ form|crispy }}
+            <button class="btn btn-info btn-block my-4" type="submit">Login</button>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

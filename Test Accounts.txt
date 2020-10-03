@@ -1,0 +1,34 @@
+Super Users:
+1) identity - testadmin1
+   password - Password_1
+
+2) identity - testadmin2
+   password - Password_2
+
+Colleges:
+1) identity - testcollege1
+   password - Password_1
+2) identity - testcollege2
+   password - Password_2
+3) identity - testcollege3
+   password - Password_3
+4) identity - testcollege4
+   password - Password_4
+5) identity - testcollege5
+   password - Password_5
+6) identity - testcollege6
+   password - Password_6
+7) identity - testcollege7
+   password - Password_7
+
+Alumni:
+1) identity - testalumni1
+   password - Password_1
+2) identity - testalumni2
+   password - Password_2
+3) identity - testalumni3
+   password - Password_3
+4) identity - testalumni4
+   password - Password_4
+
+

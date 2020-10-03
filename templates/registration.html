@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container jumbotron">
+    <div class="content-section ">
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="rounded" src="{{ user.Image.url }}" style="height: 200px;width: 250px;margin-left:30px"></div>
+            <div class="col-sm-4">
+                <h2 class="account-heading text-danger">{{ user.first_name }} {{ user.last_name }}</h2>
+                <h5 class="text-secondary text-info">Branch - {{ user.Branch }}</h5>
+                <h5 class="text-secondary text-info">College - {{ user.College }}</h5>
+                <h5 class="text-secondary text-info">Email - {{ user.email }}</h5>
+            </div>
+        </div>
+        <br>
+        <form method="POST" enctype="multipart/form-data" class=".custom-file-input">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info btn2" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
