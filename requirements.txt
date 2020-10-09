@@ -1,0 +1,4 @@
+django
+django-filter
+django-crispy-forms
+pillow
